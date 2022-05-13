@@ -16,4 +16,9 @@ public class CarreraDAOImp extends  GenericoDAOImp<Carrera,CarreraRepository> im
     public CarreraDAOImp(CarreraRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Iterable<Carrera> buscarCarrerasPorProfesorNombreYApellido(String nombre, String apellido) {
+        return ((CarreraDAO)repository).buscarCarrerasPorProfesorNombreYApellido(nombre, apellido);
+    }
 }

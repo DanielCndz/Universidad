@@ -1,6 +1,7 @@
 package com.ibm.academy.apirest.services;
 
 import com.ibm.academy.apirest.entities.Alumno;
+import com.ibm.academy.apirest.entities.Carrera;
 import com.ibm.academy.apirest.entities.Persona;
 import com.ibm.academy.apirest.repositories.AlumnoRepository;
 import com.ibm.academy.apirest.repositories.PersonaRepository;
@@ -17,6 +18,11 @@ public class AlumnoDAOImp extends PersonaDAOImp implements AlumnoDAO
     @Autowired
         public AlumnoDAOImp(@Qualifier("repositorioAlumnos")PersonaRepository repository) {
         super(repository);
+    }
+
+    @Override
+    public Iterable<Carrera> findCarreraByCantidadAnios(Integer cantidadAnios) {
+        return ((AlumnoDAO)repository).findCarreraByCantidadAnios(cantidadAnios);
     }
 
     @Override

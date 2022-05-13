@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface CarreraDAO extends GenericoDAO<Carrera>
 {
-
+    public Iterable<Carrera> buscarCarrerasPorProfesorNombreYApellido(String nombre, String apellido);
 }
