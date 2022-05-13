@@ -14,6 +14,12 @@ import org.springframework.context.annotation.Bean;
 public class UniversidadApplication {
     public static void main(String[] args) {
         SpringApplication.run(UniversidadApplication.class, args);
+        /*
+        Optional<Carrera> ingSistemas = carreraDAO.buscarPorId(1);
 
+        Iterable<Persona> alumnos = personaDAO.buscarTodos();
+        alumnos.forEach(alumno->((Alumno)alumno).setCarrera(ingSistemas.get()));
+        alumnos.forEach(alumno->personaDAO.guardar(alumno));
+        */
     }
 }

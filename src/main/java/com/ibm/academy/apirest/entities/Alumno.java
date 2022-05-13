@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Entity
 @Table(name = "alumnos",schema = "universidad")
 @PrimaryKeyJoinColumn(name = "persona_id")
@@ -25,9 +24,9 @@ public class Alumno extends Persona
 
     @Override
     public String toString() {
-        return super.toString()+"Alumno{" +
-                "carrera=" + carrera +
-                '}';
+        return super.toString() +
+                "\nAlumno: "
+                + "\nCarrera = ";
     }
 
     private static final long serialVersionUID = 8218162872660352376L;
