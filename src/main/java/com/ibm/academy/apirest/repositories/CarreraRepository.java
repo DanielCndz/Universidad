@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CarreraRepository extends CrudRepository<Carrera,Integer>
 {
-
+    public Iterable<Carrera> findCarreraByCantidadAnios(Integer cantidadAnios);
 }
