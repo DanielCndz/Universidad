@@ -1,5 +1,7 @@
 package com.ibm.academy.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.ibm.academy.apirest.enums.TipoEmpleado;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 
 @Getter
@@ -16,8 +19,10 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "empleado",schema = "universidad")
 @PrimaryKeyJoinColumn(name = "persona_id")
+@JsonTypeName("empleado")
 public class Empleado extends Persona
 {
+    @Positive(message = "El sueldo debe ser positivo")
     @Column(name = "sueldo")
     private BigDecimal sueldo;
 

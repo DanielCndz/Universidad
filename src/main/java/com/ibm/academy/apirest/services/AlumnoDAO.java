@@ -9,4 +9,6 @@ public interface AlumnoDAO extends PersonaDAO
 {
     public Iterable<Carrera> findCarreraByCantidadAnios(Integer cantidadAnios);
     public Iterable<Persona> buscarAlumnoPorNombreCarrera(String nombre);
+    public Persona actualizar(Persona alumnoEncontrado,Persona alumno);
+    public Persona  asociarCarrera(Persona alumno, Carrera carrera);
 }

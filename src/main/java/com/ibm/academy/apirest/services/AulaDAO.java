@@ -1,6 +1,7 @@
 package com.ibm.academy.apirest.services;
 
 import com.ibm.academy.apirest.entities.Aula;
+import com.ibm.academy.apirest.entities.Persona;
 import com.ibm.academy.apirest.enums.Pizarron;
 import org.springframework.data.jpa.repository.Query;
 
