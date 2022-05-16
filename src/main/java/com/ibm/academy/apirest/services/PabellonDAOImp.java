@@ -25,4 +25,13 @@ public class PabellonDAOImp extends GenericoDAOImp<Pabellon, PabellonRepository>
     public Iterable<Pabellon> buscarPabellonesPorNombre(String nombre) {
         return ((PabellonDAO)repository).buscarPabellonesPorNombre(nombre);
     }
+
+    @Override
+    public Pabellon actualizarPabellon(Pabellon pabellonEncontrado, Pabellon pabellon) {
+        pabellonEncontrado.setNombre(pabellon.getNombre());
+        pabellonEncontrado.setTamanoMetros(pabellon.getTamanoMetros());
+        pabellonEncontrado.setDireccion(pabellon.getDireccion());
+        Pabellon pabellonActualizado=repository.save(pabellonEncontrado);
+        return pabellonActualizado;
+    }
 }

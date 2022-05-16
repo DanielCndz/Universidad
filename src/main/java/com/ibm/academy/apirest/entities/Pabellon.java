@@ -1,11 +1,13 @@
 package com.ibm.academy.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -23,10 +25,11 @@ public class Pabellon implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Positive(message = "el tamanio debe ser positivo")
     @Column(name = "tamano_metros")
     private Double tamanoMetros;
 
-    @Column(name = "nombre",unique = true,nullable = false)
+    @Column(name = "nombre")
     private String nombre;
 
     @Column(name = "fecha_creacion")
@@ -42,7 +45,9 @@ public class Pabellon implements Serializable
     })
     private Direccion direccion;
 
-    @OneToMany(mappedBy = "pabellon",fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @OneToMany(mappedBy  = "pabellon", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "pabellon"})
     private Set<Aula> aulas;
 
     public Pabellon(Integer id, Double tamanoMetros, String nombre, Direccion direccion) {

@@ -1,5 +1,6 @@
 package com.ibm.academy.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ibm.academy.apirest.enums.Pizarron;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +46,7 @@ public class Aula implements Serializable
 
     @ManyToOne(optional = true,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinColumn(name = "pabellon_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "aulas"})
     private Pabellon pabellon;
 
     @Override

@@ -103,7 +103,7 @@ public class AlumnoControl
         Optional<Persona> oAlumno = alumnoDAO.buscarPorId(id);
 
         if (!oAlumno.isPresent())
-            throw new NotFoundException(String.format("La carrera con ID %d no encontrada", id));
+            throw new NotFoundException(String.format("Alumno con ID %d no encontrado", id));
 
         alumnoDAO.eliminarPorId(id);
         respuesta.put("OK", "alumno con ID " + id + " eliminad@");
